@@ -1,0 +1,38 @@
+# Tim-kiem-tuyen-tinh-vd
+#include <stdio.h>
+void Nhap(int a[],int n){//ham nhap mang
+    for(int i=0; i<n; i++){
+        printf("\nNhap a[%d]=",i);
+        scanf("%d",&a[i]);
+    }
+}
+void Xuat(int a[],int n){//ham xuat mang
+    for(int i=0; i<n; i++){
+        printf("%d \t",a[i]);
+    }
+}
+int LinearSearch(int a[], int n, int x){//thuat toan tim kiem tuyen tinh
+    for(int i=0; i<n; i++){
+        if(a[i]==x){//duyet tung phan tu neu a[i]==x thi tra ve vi tri i
+            return i;
+        }
+    }
+    return -1;//khong tim thay x
+}
+int main(){
+    int a[100];
+    int n;// so phan tu cua mang
+    printf("Nhap so phan tu:");
+    scanf("%d",&n);
+    Nhap(a,n);
+    printf("\nMang sau khi nhap la:\n");
+    Xuat(a,n);
+    int x;//phan tu x can tim
+    printf("\nNhap phan tu can tim:");
+    scanf("%d",&x);
+    if(LinearSearch(a,n,x)==-1){
+        printf("Khong tim thay %d trong mang!",x);
+    }else{
+        printf("\nVi tri cua %d trong mang la: %d",x, LinearSearch(a,n,x));
+    }    
+}
